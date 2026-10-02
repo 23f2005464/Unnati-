@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Surprise! 🎂</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Baloo+2:wght@500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,6 @@
   --mint:#3ddbb0;
   --sky:#4cc9f0;
   --grape:#8a5cf6;
-
   --display:'Bangers','Impact',sans-serif;
   --body:'Baloo 2','Trebuchet MS',sans-serif;
   --hand:'Caveat','Comic Sans MS',cursive;
@@ -29,15 +28,15 @@
 
 body{
   font-family:var(--body);
-  font-weight:500;
   color:var(--ink);
   background:var(--paper);
-  background-image:radial-gradient(var(--ink) 1.2px,transparent 1.4px);
+  background-image:
+    radial-gradient(var(--ink) 1.2px,transparent 1.4px);
   background-size:22px 22px;
   overflow-x:hidden;
 }
 
-body::before{
+body:before{
   content:"";
   position:fixed;
   inset:0;
@@ -52,17 +51,17 @@ h1,h2,h3{
   letter-spacing:.04em;
 }
 
+button{
+  font:inherit;
+  cursor:pointer;
+  color:var(--ink);
+}
+
 .ink-text{
   color:#fff;
   -webkit-text-stroke:2px var(--ink);
   paint-order:stroke fill;
   text-shadow:4px 4px 0 var(--ink);
-}
-
-button{
-  font:inherit;
-  cursor:pointer;
-  color:var(--ink);
 }
 
 .btn{
@@ -86,6 +85,10 @@ button{
   box-shadow:2px 2px 0 var(--ink);
 }
 
+/* =========================
+   STAGES
+========================= */
+
 .stage{
   min-height:100vh;
   display:none;
@@ -101,7 +104,9 @@ button{
   display:flex;
 }
 
-/* LOCK SCREEN */
+/* =========================
+   LOCK SCREEN
+========================= */
 
 #lock{
   background:var(--sky);
@@ -138,12 +143,13 @@ button{
 .tile b{
   display:block;
   font-family:var(--display);
-  font-weight:400;
   font-size:3.4rem;
   line-height:1;
 }
 
-/* REVEAL */
+/* =========================
+   REVEAL
+========================= */
 
 #reveal{
   background:var(--pink);
@@ -177,7 +183,7 @@ button{
   line-height:1.05;
 }
 
-.cursor::after{
+.cursor:after{
   content:"|";
   animation:blink .7s steps(1) infinite;
 }
@@ -186,16 +192,20 @@ button{
   50%{opacity:0}
 }
 
-/* CONFETTI */
+/* =========================
+   CONFETTI
+========================= */
 
-canvas#fx{
+#fx{
   position:fixed;
   inset:0;
   pointer-events:none;
   z-index:90;
 }
 
-/* MAIN */
+/* =========================
+   MAIN
+========================= */
 
 #main{
   display:none;
@@ -208,11 +218,13 @@ canvas#fx{
 section{
   padding:70px 16px;
   max-width:1000px;
-  margin:0 auto;
+  margin:auto;
   text-align:center;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
   min-height:92vh;
@@ -268,7 +280,20 @@ section{
   50%{transform:translateY(-12px)}
 }
 
-/* SLIDESHOW */
+/* =========================
+   SLIDESHOW
+========================= */
+
+.sec-title{
+  font-size:clamp(2rem,6vw,3.6rem);
+  margin-bottom:.2em;
+}
+
+.sec-sub{
+  font-size:1.15rem;
+  font-weight:700;
+  margin-bottom:1.8rem;
+}
 
 .show{
   display:flex;
@@ -289,7 +314,7 @@ section{
   touch-action:pan-y;
 }
 
-.frame::before{
+.frame:before{
   content:"";
   position:absolute;
   top:-18px;
@@ -302,7 +327,7 @@ section{
   transform:rotate(-3deg);
 }
 
-.frame .ph{
+.ph{
   height:min(62vh,520px);
   background:var(--ink);
   border:3px solid var(--ink);
@@ -370,7 +395,9 @@ section{
   padding:.2em 1em;
 }
 
-/* LETTERS */
+/* =========================
+   LETTERS
+========================= */
 
 #lettersWrap{
   background:var(--mint);
@@ -380,9 +407,10 @@ section{
 
 .letters{
   max-width:1000px;
-  margin:0 auto;
+  margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
   gap:30px;
 }
 
@@ -402,7 +430,7 @@ section{
   animation:wig 3s ease-in-out infinite;
 }
 
-.env::before{
+.env:before{
   content:"";
   position:absolute;
   inset:0 0 40% 0;
@@ -413,7 +441,7 @@ section{
   transition:transform .4s;
 }
 
-.env::after{
+.env:after{
   content:"✉️";
   position:absolute;
   top:36px;
@@ -427,11 +455,11 @@ section{
   transform:translateY(-6px) rotate(-2deg);
 }
 
-.env.open::before{
+.env.open:before{
   transform:rotateX(180deg);
 }
 
-.env.open::after{
+.env.open:after{
   top:-10px;
   transform:translateX(-50%) scale(1.8);
 }
@@ -504,10 +532,9 @@ section{
   font-size:clamp(1.7rem,4vw,2.6rem);
   line-height:49px;
   white-space:pre-wrap;
-  min-height:50%;
 }
 
-.paper .from{
+.from{
   text-align:right;
   font-family:var(--display);
   font-size:clamp(1.6rem,4vw,2.4rem);
@@ -552,7 +579,9 @@ section{
   }
 }
 
-/* BET */
+/* =========================
+   PARTY BET
+========================= */
 
 #betWrap{
   background:var(--sky);
@@ -562,7 +591,7 @@ section{
 
 .bet{
   max-width:560px;
-  margin:0 auto;
+  margin:auto;
   background:#fff;
   border:5px solid var(--ink);
   border-radius:22px;
@@ -597,6 +626,7 @@ section{
   border-radius:999px;
   padding:.1em .9em;
   box-shadow:3px 3px 0 var(--ink);
+  cursor:pointer;
 }
 
 .chip.on{
@@ -626,12 +656,6 @@ section{
   transition:transform 1.4s cubic-bezier(.3,1.3,.5,1);
 }
 
-.pot{
-  font-family:var(--display);
-  font-size:2.2rem;
-  margin-top:14px;
-}
-
 #res{
   font-weight:700;
   font-size:1.2rem;
@@ -639,15 +663,66 @@ section{
   margin-top:6px;
 }
 
+.pot{
+  font-family:var(--display);
+  font-size:2.2rem;
+  margin-top:14px;
+}
+
+.history-box{
+  margin-top:25px;
+  border-top:4px dashed var(--ink);
+  padding-top:18px;
+}
+
+.history-box h3{
+  font-size:1.8rem;
+  margin-bottom:12px;
+}
+
 #feed{
   list-style:none;
   padding:0;
-  margin-top:10px;
-  font-weight:700;
-  font-size:1rem;
+  margin:0;
+  max-height:360px;
+  overflow-y:auto;
+  text-align:left;
 }
 
-/* FINALE */
+#feed li{
+  margin:10px 0;
+  padding:12px;
+  border:3px solid var(--ink);
+  border-radius:14px;
+  background:var(--paper);
+  box-shadow:4px 4px 0 var(--ink);
+  font-weight:700;
+  line-height:1.45;
+}
+
+#feed li.win{
+  background:var(--mint);
+}
+
+#feed li.loss{
+  background:#ffe0e7;
+}
+
+.bet-date{
+  display:block;
+  margin-top:5px;
+  font-size:.8rem;
+  opacity:.7;
+}
+
+.clear-history{
+  margin-top:15px;
+  background:var(--pink);
+}
+
+/* =========================
+   FINALE
+========================= */
 
 .finale h2{
   font-size:clamp(2rem,7vw,4rem);
@@ -659,8 +734,6 @@ section{
   max-width:34ch;
   margin:.5em auto 1.4em;
 }
-
-/* BALLOONS */
 
 .balloon{
   position:fixed;
@@ -674,7 +747,7 @@ section{
   animation:rise linear forwards;
 }
 
-.balloon::after{
+.balloon:after{
   content:"";
   position:absolute;
   left:50%;
@@ -686,11 +759,15 @@ section{
 
 @keyframes rise{
   to{
-    transform:translateY(-130vh) translateX(var(--dx));
+    transform:
+      translateY(-130vh)
+      translateX(var(--dx));
   }
 }
 
-/* MUSIC BUTTON */
+/* =========================
+   MUSIC
+========================= */
 
 #musicBtn{
   position:fixed;
@@ -722,7 +799,12 @@ section{
   overflow:hidden;
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:520px){
+
   .burst{
     padding:28px 24px;
   }
@@ -736,19 +818,45 @@ section{
     height:42px;
     font-size:1.5rem;
   }
+
+  .show{
+    gap:5px;
+  }
+
+  .frame{
+    width:76vw;
+  }
+
+  .bet{
+    margin:0 8px;
+  }
+
+  .chip{
+    font-size:1.1rem;
+  }
+
+  .coin{
+    width:100px;
+    height:100px;
+  }
+
 }
 
 @media(prefers-reduced-motion:reduce){
+
   *{
     animation:none!important;
   }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOCK SCREEN -->
+<!-- =====================================================
+     LOCK SCREEN
+===================================================== -->
 
 <div class="stage on" id="lock">
 
@@ -783,13 +891,15 @@ section{
 </div>
 
 
-<!-- REVEAL -->
+<!-- =====================================================
+     REVEAL
+===================================================== -->
 
 <div class="stage" id="reveal">
 
   <div id="pre">
 
-    <button id="giftBtn" aria-label="Open the surprise">
+    <button id="giftBtn" aria-label="Open surprise">
       🎁
     </button>
 
@@ -806,7 +916,9 @@ section{
 </div>
 
 
-<!-- MAIN -->
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <div id="main">
 
@@ -834,7 +946,9 @@ section{
   </header>
 
 
-  <!-- MEMORY SLIDESHOW -->
+  <!-- ===================================================
+       MEMORY SLIDESHOW
+  ==================================================== -->
 
   <section>
 
@@ -848,21 +962,23 @@ section{
 
     <div class="show">
 
-      <button class="nav" id="prev" aria-label="Previous">
+      <button class="nav" id="prev">
         ‹
       </button>
 
       <div class="frame" id="frame">
 
         <div class="ph">
-          <img id="slImg" alt="">
+
+          <img id="slImg" alt="Memory">
+
         </div>
 
         <div id="slCap"></div>
 
       </div>
 
-      <button class="nav" id="next" aria-label="Next">
+      <button class="nav" id="next">
         ›
       </button>
 
@@ -877,7 +993,9 @@ section{
   </section>
 
 
-  <!-- LETTERS -->
+  <!-- ===================================================
+       LETTERS
+  ==================================================== -->
 
   <div id="lettersWrap">
 
@@ -898,7 +1016,9 @@ section{
   </div>
 
 
-  <!-- PARTY BET -->
+  <!-- ===================================================
+       PARTY BET
+  ==================================================== -->
 
   <div id="betWrap">
 
@@ -921,7 +1041,10 @@ section{
           maxlength="20"
         >
 
-        <div class="chips" id="chips"></div>
+        <div
+          class="chips"
+          id="chips"
+        ></div>
 
         <input
           id="bAmt"
@@ -932,11 +1055,17 @@ section{
 
         <div class="chips">
 
-          <button class="chip on" data-side="Heads">
+          <button
+            class="chip on"
+            data-side="Heads"
+          >
             Heads
           </button>
 
-          <button class="chip" data-side="Tails">
+          <button
+            class="chip"
+            data-side="Tails"
+          >
             Tails
           </button>
 
@@ -950,22 +1079,54 @@ section{
 
         </div>
 
-        <button class="btn" id="flip">
+        <button
+          class="btn"
+          id="flip"
+        >
           Flip &amp; Bet!
         </button>
 
         <div id="res"></div>
 
         <div class="pot">
-          Party pot: ₹<span id="pot">0</span>
+          Party pot:
+          ₹<span id="pot">0</span>
         </div>
 
-        <ul id="feed"></ul>
+
+        <!-- BET HISTORY -->
+
+        <div class="history-box">
+
+          <h3>
+            📜 Bet History
+          </h3>
+
+          <ul id="feed"></ul>
+
+        </div>
+
+
+        <!-- CLEAR HISTORY -->
+
+        <button
+          class="btn clear-history"
+          id="clearHistory"
+        >
+          Clear Bet History
+        </button>
+
+
+        <!-- UPI -->
 
         <a
           class="btn"
           id="upi"
-          style="display:none;margin-top:14px;text-decoration:none"
+          style="
+            display:none;
+            margin-top:14px;
+            text-decoration:none
+          "
           target="_blank"
           rel="noopener"
         >
@@ -979,7 +1140,9 @@ section{
   </div>
 
 
-  <!-- FINALE -->
+  <!-- ===================================================
+       FINALE
+  ==================================================== -->
 
   <section class="finale">
 
@@ -991,7 +1154,10 @@ section{
       Many more years of chai, chaos and crazy plans together.
     </p>
 
-    <button class="btn" id="moreBalloons">
+    <button
+      class="btn"
+      id="moreBalloons"
+    >
       Send balloons
     </button>
 
@@ -1008,20 +1174,33 @@ section{
 </div>
 
 
-<!-- MUSIC -->
+<!-- MUSIC BUTTON -->
 
-<button id="musicBtn" aria-label="Play or pause music">
+<button
+  id="musicBtn"
+  aria-label="Play or pause music"
+>
   🎵
 </button>
 
 
 <!-- LETTER MODAL -->
 
-<div class="letter-modal" id="modal">
+<div
+  class="letter-modal"
+  id="modal"
+>
 
-  <div class="paper" role="dialog" aria-modal="true">
+  <div
+    class="paper"
+    role="dialog"
+    aria-modal="true"
+  >
 
-    <button class="close" id="closeLetter">
+    <button
+      class="close"
+      id="closeLetter"
+    >
       ✕
     </button>
 
@@ -1029,11 +1208,17 @@ section{
 
     <p id="lBody"></p>
 
-    <div class="from" id="lFrom"></div>
+    <div
+      class="from"
+      id="lFrom"
+    ></div>
 
     <div class="lbar">
 
-      <button class="btn" id="lPrev">
+      <button
+        class="btn"
+        id="lPrev"
+      >
         ‹ Prev
       </button>
 
@@ -1045,7 +1230,10 @@ section{
         👏
       </button>
 
-      <button class="btn" id="lNext">
+      <button
+        class="btn"
+        id="lNext"
+      >
         Next ›
       </button>
 
@@ -1068,184 +1256,366 @@ section{
 <canvas id="fx"></canvas>
 
 
+<!-- =====================================================
+     PHOTOS GENERATED BY generate_photos.py
+===================================================== -->
+
+<script src="photos.js"></script>
+
+
 <script>
 
 /* =========================================================
-   EDIT THIS PART
-   ========================================================= */
+   CONFIG
+========================================================= */
 
 const CONFIG = {
 
   friendName: "Unnu Bhai",
 
-  unlockAt: "2026-10-03T00:00:00+05:30",
+  unlockAt:
+    "2026-10-03T00:00:00+05:30",
 
-  youtube: "https://youtu.be/d5jlZ4qmWzM?si=2AxbXrehZILP2mtj",
+  youtube:
+    "https://youtu.be/d5jlZ4qmWzM?si=2AxbXrehZILP2mtj",
 
   /*
-   * IMPORTANT:
-   * Song starts from the very beginning.
+   * Always starts at 0:00.
    */
   songStartSeconds: 0,
 
   /*
-   * Optional UPI link.
-   * Example:
-   *
-   * "upi://pay?pa=yourname@upi&pn=PartyFund"
+   * Optional UPI.
    */
   upiLink: ""
 
 };
 
 
-/*
- * =========================================================
- * PHOTOS
- * =========================================================
- *
- * Replace this with your original base64 photo array.
- *
- * Example:
- *
- * const PHOTOS = [
- *   {
- *     src: "data:image/jpeg;base64,...",
- *     caption: "Our first memory ❤️"
- *   }
- * ];
- *
- */
-const PHOTOS = [
-  {
-    "src": "image/WhatsApp Image 2026-10-02 at 23.27.57.jpeg",
-    "caption": "😂 Another legendary moment"
-  },
-  {
-    "src": "image/WhatsApp Image 2026-10-02 at 23.27.58.jpeg",
-    "caption": "😂 Another legendary moment"
-  },
-  {
-    "src": "image/WhatsApp Image 2026-10-02 at 23.28.51.jpeg",
-    "caption": "😂 Another legendary moment"
-  },
-  {
-    "src": "image/WhatsApp Image 2026-10-02 at 23.30.20.jpeg",
-    "caption": "😂 Another legendary moment"
-  },
-  {
-    "src": "image/WhatsApp Image 2026-10-02 at 23.31.39.jpeg",
-    "caption": "😂 Another legendary moment"
-  },
-  {
-    "src": "image/WhatsApp Image 2026-10-02 at 23.32.48.jpeg",
-    "caption": "😂 Another legendary moment"
-  },
-  {
-    "src": "image/WhatsApp Image 2026-10-02 at 23.33.12.jpeg",
-    "caption": "😂 Another legendary moment"
-  },
-  {
-    "src": "image/WhatsApp Image 2026-10-02 at 23.34.42.jpeg",
-    "caption": "😂 Another legendary moment"
-  }
-];
-
-
-/*
- * =========================================================
- * LETTERS
- * =========================================================
- */
+/* =========================================================
+   LETTERS
+========================================================= */
 
 const LETTERS = [
 
   {
-    from: "Kanak Tiwari",
+    from:"Kanak Tiwari",
 
-    title: "Dear Unnu Bhai 💛",
+    title:"Dear Unnu Bhai 💛",
 
-    text:
-`Happy Birthday!
+    text:`Happy Birthday!
 
 Janamdin Mubarakho 🎂
 
-This year will be your last year with us, but maybe you'll create even more memories hopefully!!!!`
+This year will be your last year with us, but maybe you'll create even more memories hopefully!!!!
+
+Stay the same crazy person you are. 😂
+
+Have an amazing birthday! 🎉`
+  },
+
+
+  {
+    from:"Your Gang 😎",
+
+    title:"To Our Birthday Legend 🥳",
+
+    text:`Brooo!
+
+Another year older, but don't worry...
+
+we won't tell anyone your actual age. 🤫😂
+
+From random plans to random bakchodi,
+there have been so many memories.
+
+Keep smiling, keep annoying everyone,
+and keep being Unnu Bhai! ❤️`
+  },
+
+
+  {
+    from:"The Gang 💀",
+
+    title:"Official Warning 🚨",
+
+    text:`Dear Unnu Bhai,
+
+On this special occasion,
+we would like to officially inform you that:
+
+You are getting older.
+
+Unfortunately, your maturity level
+is still under investigation. 😂
+
+Please continue your nonsense responsibly.
+
+Happy Birthday! 🎂`
+  },
+
+
+  {
+    from:"Your Friends ❤️",
+
+    title:"A Small Reminder",
+
+    text:`Hey Unnu Bhai!
+
+Just wanted to remind you that
+life is not about having everything figured out.
+
+It's about having good people around,
+making stupid memories,
+laughing at completely unnecessary things,
+and enjoying the journey.
+
+We're glad you're part of our gang.
+
+Happy Birthday! ❤️🎂`
+  },
+
+
+  {
+    from:"The Evidence Department 📸",
+
+    title:"We Have Photos... 👀",
+
+    text:`Dear Unnu Bhai,
+
+You might think you've escaped
+all the embarrassing moments.
+
+You haven't.
+
+We have photographs. 😂
+
+We have screenshots.
+
+We have memories.
+
+And most importantly...
+
+We have the group chat. 💀
+
+Happy Birthday, legend!`
+  },
+
+
+  {
+    from:"Your Gang 🫂",
+
+    title:"Many More Memories",
+
+    text:`Happy Birthday Bhai! 🎂
+
+Here's to more chai,
+more late-night conversations,
+more random plans,
+more trips,
+more arguments,
+more laughter,
+and a lot more unforgettable memories.
+
+Whatever happens next,
+let's make sure the gang stays together.
+
+Cheers to you! 🥳❤️`
+  },
+
+
+  {
+    from:"Future Us 🚀",
+
+    title:"One Day We'll Look Back",
+
+    text:`One day we'll look back at all these photos
+and probably wonder...
+
+"What were we even doing?" 😂
+
+But those random moments
+will probably be the memories
+we remember the most.
+
+So here's to today,
+and to all the crazy days still waiting for us.
+
+Happy Birthday! 🎉`
+  },
+
+
+  {
+    from:"The Birthday Committee 🎂",
+
+    title:"Official Birthday Certificate",
+
+    text:`This is to officially certify that
+
+UNNU BHAI
+
+has successfully completed another year
+of surviving life, friends, assignments,
+random problems and our nonsense.
+
+Performance:
+
+😂 Bakchodi: Excellent
+😎 Style: Questionable
+🧠 Maturity: Pending
+❤️ Friendship: 10/10
+
+Congratulations! 🎉`
+  },
+
+
+  {
+    from:"Your Gang ❤️",
+
+    title:"No Serious Speech Today",
+
+    text:`We could write something emotional...
+
+But you know us.
+
+So instead:
+
+Have a great birthday.
+Eat lots of cake.
+Take lots of photos.
+Enjoy the day.
+
+And don't do anything
+we can use against you later. 😂
+
+Happy Birthday, Unnu Bhai! 🎂🥳`
+  },
+
+
+  {
+    from:"Everyone",
+
+    title:"One Last Thing 💛",
+
+    text:`Whatever happens in the coming years,
+
+don't forget these stupid,
+funny and completely random moments.
+
+People change.
+Places change.
+Life gets busy.
+
+But the memories we made together
+will always be special.
+
+Happy Birthday, Bhai.
+
+Keep smiling. ❤️`
   }
 
 ];
 
 
 /* =========================================================
-   BASIC HELPERS
-   ========================================================= */
+   HELPERS
+========================================================= */
 
-const $ = s => document.querySelector(s);
+const $ =
+  selector =>
+    document.querySelector(selector);
 
-const $$ = s => [...document.querySelectorAll(s)];
+const $$ =
+  selector =>
+    [...document.querySelectorAll(selector)];
 
-$('#nameH').textContent = CONFIG.friendName;
+$('#nameH').textContent =
+  CONFIG.friendName;
 
-const q = new URLSearchParams(location.search);
+const query =
+  new URLSearchParams(location.search);
 
 const unlockMs =
   new Date(CONFIG.unlockAt).getTime();
 
 const pad =
-  n => String(n).padStart(2,'0');
+  n =>
+    String(n).padStart(2,'0');
 
 
 /* =========================================================
-   LOCK TIMER
-   ========================================================= */
+   COUNTDOWN
+========================================================= */
 
-let tick = setInterval(update,500);
+let tick =
+  setInterval(updateCountdown,500);
 
-update();
+updateCountdown();
 
-function update(){
+function updateCountdown(){
 
-  const l = unlockMs - Date.now();
+  const remaining =
+    unlockMs - Date.now();
 
-  if(l <= 0 || q.has('open')){
+  if(
+    remaining <= 0 ||
+    query.has("open")
+  ){
 
     clearInterval(tick);
 
-    $('#lock').classList.remove('on');
+    $('#lock')
+      .classList
+      .remove('on');
 
-    if(!$('#main').classList.contains('on')){
-      $('#reveal').classList.add('on');
-    }
+    $('#reveal')
+      .classList
+      .add('on');
 
     return;
+
   }
 
-  const s = Math.floor(l/1000);
+  const seconds =
+    Math.floor(
+      remaining / 1000
+    );
 
   $('#th').textContent =
-    pad(Math.floor(s/3600));
+    pad(
+      Math.floor(seconds / 3600)
+    );
 
   $('#tm').textContent =
-    pad(Math.floor((s%3600)/60));
+    pad(
+      Math.floor(
+        (seconds % 3600) / 60
+      )
+    );
 
   $('#ts').textContent =
-    pad(s%60);
+    pad(
+      seconds % 60
+    );
+
 }
 
 
 /* =========================================================
    CONFETTI
-   ========================================================= */
+========================================================= */
 
-const cv = $('#fx');
+const canvas =
+  $('#fx');
 
-const cx = cv.getContext('2d');
+const ctx =
+  canvas.getContext('2d');
 
-let bits = [];
+let pieces = [];
 
-let raf;
+let animationFrame = null;
 
-const COLS = [
+const COLORS = [
   '#ffd23f',
   '#ff6b9d',
   '#3ddbb0',
@@ -1254,157 +1624,198 @@ const COLS = [
   '#fff'
 ];
 
-function size(){
+function resizeCanvas(){
 
-  cv.width = innerWidth;
-  cv.height = innerHeight;
+  canvas.width =
+    innerWidth;
+
+  canvas.height =
+    innerHeight;
 
 }
 
-size();
+resizeCanvas();
 
-addEventListener('resize',size);
+addEventListener(
+  'resize',
+  resizeCanvas
+);
 
 
 function confetti(
-  n=160,
+  amount=160,
   x=innerWidth/2,
   y=innerHeight*.45
 ){
 
-  for(let i=0;i<n;i++){
+  for(let i=0;i<amount;i++){
 
-    const a =
-      Math.random()*6.28;
+    const angle =
+      Math.random()*Math.PI*2;
 
-    const v =
-      4 + Math.random()*10;
+    const velocity =
+      4+Math.random()*10;
 
-    bits.push({
+    pieces.push({
 
-      x,
-      y,
+      x:x,
 
-      vx:Math.cos(a)*v,
+      y:y,
 
-      vy:Math.sin(a)*v-6,
+      vx:
+        Math.cos(angle) *
+        velocity,
 
-      w:6+Math.random()*8,
+      vy:
+        Math.sin(angle) *
+        velocity -
+        6,
 
-      h:10+Math.random()*10,
+      w:
+        6+Math.random()*8,
 
-      r:Math.random()*6,
+      h:
+        10+Math.random()*10,
 
-      vr:(Math.random()-.5)*.4,
+      rotation:
+        Math.random()*6,
 
-      c:COLS[i%6],
+      rotationSpeed:
+        (Math.random()-.5)*.4,
 
-      life:140+Math.random()*60
+      color:
+        COLORS[i%COLORS.length],
+
+      life:
+        140+Math.random()*60
 
     });
 
   }
 
-  if(!raf){
-    loop();
+  if(!animationFrame){
+
+    confettiLoop();
+
   }
 
 }
 
 
-function loop(){
+function confettiLoop(){
 
-  cx.clearRect(
+  ctx.clearRect(
     0,
     0,
-    cv.width,
-    cv.height
+    canvas.width,
+    canvas.height
   );
 
-  bits =
-    bits.filter(
-      b => b.life-- > 0
+  pieces =
+    pieces.filter(
+      p => p.life-- > 0
     );
 
-  bits.forEach(b => {
+  pieces.forEach(p => {
 
-    b.x += b.vx;
+    p.x += p.vx;
 
-    b.y += b.vy;
+    p.y += p.vy;
 
-    b.vy += .28;
+    p.vy += .28;
 
-    b.vx *= .99;
+    p.vx *= .99;
 
-    b.r += b.vr;
+    p.rotation +=
+      p.rotationSpeed;
 
-    cx.save();
+    ctx.save();
 
-    cx.translate(
-      b.x,
-      b.y
+    ctx.translate(
+      p.x,
+      p.y
     );
 
-    cx.rotate(b.r);
-
-    cx.fillStyle = b.c;
-
-    cx.strokeStyle = '#1b1340';
-
-    cx.lineWidth = 2;
-
-    cx.fillRect(
-      -b.w/2,
-      -b.h/2,
-      b.w,
-      b.h
+    ctx.rotate(
+      p.rotation
     );
 
-    cx.strokeRect(
-      -b.w/2,
-      -b.h/2,
-      b.w,
-      b.h
+    ctx.fillStyle =
+      p.color;
+
+    ctx.strokeStyle =
+      '#1b1340';
+
+    ctx.lineWidth = 2;
+
+    ctx.fillRect(
+      -p.w/2,
+      -p.h/2,
+      p.w,
+      p.h
     );
 
-    cx.restore();
+    ctx.strokeRect(
+      -p.w/2,
+      -p.h/2,
+      p.w,
+      p.h
+    );
+
+    ctx.restore();
 
   });
 
-  raf =
-    bits.length
-      ? requestAnimationFrame(loop)
+  animationFrame =
+    pieces.length
+      ? requestAnimationFrame(
+          confettiLoop
+        )
       : null;
 
 }
 
 
 /* =========================================================
-   HEARTS / PARTY EFFECTS
-   ========================================================= */
+   HEARTS
+========================================================= */
 
-function hearts(x,y,n=8){
+function hearts(
+  x,
+  y,
+  amount=8
+){
 
-  for(let i=0;i<n;i++){
+  for(let i=0;i<amount;i++){
 
-    const h =
+    const heart =
       document.createElement('div');
 
-    h.className = 'heart';
+    heart.className =
+      'heart';
 
-    h.textContent =
+    heart.textContent =
       ['🎉','🎊','✨','🥳','👏'][i%5];
 
-    h.style.left =
-      (x+Math.random()*80-40)+'px';
+    heart.style.left =
+      (
+        x +
+        Math.random()*80 -
+        40
+      ) + 'px';
 
-    h.style.top =
-      (y+Math.random()*30)+'px';
+    heart.style.top =
+      (
+        y +
+        Math.random()*30
+      ) + 'px';
 
-    document.body.appendChild(h);
+    document.body.appendChild(
+      heart
+    );
 
     setTimeout(
-      () => h.remove(),
+      () => heart.remove(),
       1400
     );
 
@@ -1414,119 +1825,140 @@ function hearts(x,y,n=8){
 
 
 /* =========================================================
-   SYNTHESIZED CROWD CLAPS
-   ========================================================= */
+   CROWD CLAPS
+========================================================= */
 
-function claps(sec=5){
+function claps(seconds=5){
 
   try{
 
-    const ac =
-      new (
-        window.AudioContext ||
-        window.webkitAudioContext
-      )();
+    const AudioContext =
+      window.AudioContext ||
+      window.webkitAudioContext;
 
-    const len =
+    const audio =
+      new AudioContext();
+
+    const length =
       Math.floor(
-        ac.sampleRate*0.12
+        audio.sampleRate * .12
       );
 
-    const buf =
-      ac.createBuffer(
+    const buffer =
+      audio.createBuffer(
         1,
-        len,
-        ac.sampleRate
+        length,
+        audio.sampleRate
       );
 
-    const d =
-      buf.getChannelData(0);
+    const data =
+      buffer.getChannelData(0);
 
-    for(let i=0;i<len;i++){
+    for(
+      let i=0;
+      i<length;
+      i++
+    ){
 
-      d[i] =
+      data[i] =
         (Math.random()*2-1) *
         Math.pow(
-          1-i/len,
+          1-i/length,
           4
         );
 
     }
 
     const master =
-      ac.createGain();
+      audio.createGain();
 
-    master.gain.value = .9;
+    master.gain.value =
+      .9;
 
     master.connect(
-      ac.destination
+      audio.destination
     );
 
-    for(let i=0;i<sec*30;i++){
 
-      const off =
+    for(
+      let i=0;
+      i<seconds*30;
+      i++
+    ){
+
+      const offset =
         .05 +
         Math.pow(
           Math.random(),
           .8
-        )*sec;
+        ) *
+        seconds;
 
-      const t =
-        ac.currentTime + off;
+      const time =
+        audio.currentTime +
+        offset;
 
-      const env =
+      const envelope =
         Math.max(
           .3,
           Math.sin(
             Math.PI *
-            off /
-            (sec+.05)
+            offset /
+            (seconds+.05)
           )
         );
 
-      const s =
-        ac.createBufferSource();
+      const source =
+        audio.createBufferSource();
 
-      s.buffer = buf;
+      source.buffer =
+        buffer;
 
-      s.playbackRate.value =
+      source.playbackRate.value =
         .8 +
         Math.random()*.6;
 
-      const f =
-        ac.createBiquadFilter();
+      const filter =
+        audio.createBiquadFilter();
 
-      f.type = 'bandpass';
+      filter.type =
+        'bandpass';
 
-      f.frequency.value =
+      filter.frequency.value =
         1200 +
         Math.random()*1800;
 
-      f.Q.value = .8;
+      filter.Q.value =
+        .8;
 
-      const g =
-        ac.createGain();
+      const gain =
+        audio.createGain();
 
-      g.gain.value =
-        (.25 +
-        Math.random()*.5) *
-        env;
+      gain.gain.value =
+        (
+          .25 +
+          Math.random()*.5
+        ) *
+        envelope;
 
-      s.connect(f);
+      source
+        .connect(filter);
 
-      f.connect(g);
+      filter
+        .connect(gain);
 
-      g.connect(master);
+      gain
+        .connect(master);
 
-      s.start(t);
+      source.start(time);
 
     }
 
-  }catch(e){
+  }catch(error){
 
     console.log(
-      "Clap audio unavailable:",
-      e
+      'Clap audio unavailable',
+      error
     );
 
   }
@@ -1536,9 +1968,9 @@ function claps(sec=5){
 
 /* =========================================================
    YOUTUBE MUSIC
-   ========================================================= */
+========================================================= */
 
-const ytId =
+const youtubeId =
   (
     CONFIG.youtube.match(
       /(?:v=|youtu\.be\/|embed\/)([\w-]{11})/
@@ -1546,34 +1978,34 @@ const ytId =
     || [,CONFIG.youtube]
   )[1];
 
-let yt = null;
+let youtubePlayer =
+  null;
 
-let ytOk = false;
+let youtubeReady =
+  false;
 
-let playing = false;
+let musicPlaying =
+  false;
 
-let wantPlay = false;
+let wantMusic =
+  false;
 
-let wantVol = 80;
 
-
-/*
- * Load YouTube IFrame API
- */
-
-const ys =
+const youtubeScript =
   document.createElement('script');
 
-ys.src =
+youtubeScript.src =
   'https://www.youtube.com/iframe_api';
 
-document.head.appendChild(ys);
+document.head.appendChild(
+  youtubeScript
+);
 
 
 window.onYouTubeIframeAPIReady =
-  () => {
+  function(){
 
-    yt =
+    youtubePlayer =
       new YT.Player(
         'ytp',
         {
@@ -1582,59 +2014,53 @@ window.onYouTubeIframeAPIReady =
 
           height:'2',
 
-          videoId:ytId,
+          videoId:
+            youtubeId,
 
           playerVars:{
 
             autoplay:0,
 
-            loop:1,
-
-            playlist:ytId,
-
-            /*
-             * Start position is explicitly 0.
-             */
-            start:0,
-
             controls:0,
 
-            playsinline:1
+            playsinline:1,
+
+            loop:1,
+
+            playlist:youtubeId,
+
+            start:0
 
           },
 
           events:{
 
-            onReady:() => {
+            onReady:function(){
 
-              ytOk = true;
+              youtubeReady =
+                true;
 
-              if(wantPlay){
+              if(wantMusic){
 
-                playMusic(
-                  wantVol
-                );
+                playMusic();
 
               }
 
             },
 
-            onStateChange:e => {
+            onStateChange:function(event){
 
               if(
-                e.data ===
+                event.data ===
                 YT.PlayerState.ENDED
               ){
 
-                /*
-                 * Restart from 0:00
-                 */
-                yt.seekTo(
+                youtubePlayer.seekTo(
                   0,
                   true
                 );
 
-                yt.playVideo();
+                youtubePlayer.playVideo();
 
               }
 
@@ -1643,42 +2069,39 @@ window.onYouTubeIframeAPIReady =
           }
 
         }
+
       );
 
   };
 
 
-/*
- * PLAY MUSIC
- *
- * Always starts from 0:00.
- */
+function playMusic(){
 
-function playMusic(vol=80){
+  wantMusic =
+    true;
 
-  wantPlay = true;
+  if(!youtubeReady){
 
-  wantVol = vol;
-
-  if(!ytOk){
     return;
+
   }
 
-  yt.unMute();
+  youtubePlayer.unMute();
 
-  yt.setVolume(vol);
+  youtubePlayer.setVolume(80);
 
   /*
-   * ALWAYS start from the beginning.
+   * ALWAYS start from 0:00.
    */
-  yt.seekTo(
+  youtubePlayer.seekTo(
     0,
     true
   );
 
-  yt.playVideo();
+  youtubePlayer.playVideo();
 
-  playing = true;
+  musicPlaying =
+    true;
 
   $('#musicBtn').textContent =
     '🎵';
@@ -1686,31 +2109,31 @@ function playMusic(vol=80){
 }
 
 
-/*
- * MUSIC BUTTON
- */
-
 $('#musicBtn').onclick =
-  () => {
+  function(){
 
-    if(!ytOk){
+    if(!youtubeReady){
+
       return;
+
     }
 
-    if(playing){
+    if(musicPlaying){
 
-      yt.pauseVideo();
+      youtubePlayer.pauseVideo();
 
-      playing = false;
+      musicPlaying =
+        false;
 
       $('#musicBtn').textContent =
         '🔇';
 
     }else{
 
-      yt.playVideo();
+      youtubePlayer.playVideo();
 
-      playing = true;
+      musicPlaying =
+        true;
 
       $('#musicBtn').textContent =
         '🎵';
@@ -1720,14 +2143,10 @@ $('#musicBtn').onclick =
   };
 
 
-/*
- * REPLAY BUTTON
- */
-
 $('#replay').onclick =
-  () => {
+  function(){
 
-    playMusic(80);
+    playMusic();
 
     confetti(140);
 
@@ -1736,10 +2155,10 @@ $('#replay').onclick =
 
 /* =========================================================
    GIFT REVEAL
-   ========================================================= */
+========================================================= */
 
 $('#giftBtn').onclick =
-  () => {
+  function(){
 
     $('#pre').style.display =
       'none';
@@ -1747,9 +2166,9 @@ $('#giftBtn').onclick =
     $('#boom').style.display =
       'block';
 
-    $('#musicBtn').classList.add(
-      'on'
-    );
+    $('#musicBtn')
+      .classList
+      .add('on');
 
 
     /*
@@ -1759,15 +2178,10 @@ $('#giftBtn').onclick =
 
 
     /*
-     * Start the ACTUAL song
-     * immediately from 0:00.
+     * Song begins at 0:00.
      */
-    playMusic(80);
+    playMusic();
 
-
-    /*
-     * Confetti.
-     */
 
     confetti(220);
 
@@ -1793,49 +2207,49 @@ $('#giftBtn').onclick =
 
 
     /*
-     * IMPORTANT:
+     * Visual greeting only.
      *
-     * There is NO SpeechSynthesis here.
-     *
-     * Therefore the browser will NOT
-     * say "Happy Birthday Unnu Bhai".
+     * NO SpeechSynthesis.
      */
 
-    const t =
+    const text =
       $('#boomText');
 
-    const full =
-      "Surprise!\nHappy Birthday!\n" +
+    const message =
+      "Surprise!\n" +
+      "Happy Birthday!\n" +
       CONFIG.friendName +
       "!";
 
-    let i = 0;
+    let index = 0;
 
-    t.classList.add(
+    text.classList.add(
       'cursor'
     );
 
 
-    function type(){
+    function typeText(){
 
-      t.innerHTML =
-        full
-          .slice(0,i)
+      text.innerHTML =
+        message
+          .slice(0,index)
           .replace(
             /\n/g,
             '<br>'
           );
 
-      if(i++ < full.length){
+      index++;
+
+      if(index <= message.length){
 
         setTimeout(
-          type,
+          typeText,
           70
         );
 
       }else{
 
-        t.classList.remove(
+        text.classList.remove(
           'cursor'
         );
 
@@ -1867,14 +2281,32 @@ $('#giftBtn').onclick =
 
     }
 
-    type();
+    typeText();
 
   };
 
 
 /* =========================================================
    SLIDESHOW
-   ========================================================= */
+========================================================= */
+
+/*
+ * photos.js is generated from your image/ folder.
+ *
+ * If photos.js exists:
+ *
+ * window.PHOTOS = [
+ *   {
+ *     src:"image/photo.jpg",
+ *     caption:"..."
+ *   }
+ * ];
+ *
+ */
+
+const PHOTOS =
+  window.PHOTOS || [];
+
 
 const slides =
   PHOTOS.length
@@ -1884,7 +2316,7 @@ const slides =
         {
 
           src:
-            "data:image/svg+xml," +
+            'data:image/svg+xml,' +
             encodeURIComponent(`
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1911,61 +2343,91 @@ const slides =
             `),
 
           caption:
-            "Add your photos!"
+            'Add your photos!'
 
         }
 
       ];
 
 
-let cur = 0;
+let currentSlide =
+  0;
 
-let timer = null;
+let slideshowTimer =
+  null;
 
-let auto = true;
-
-
-slides.forEach(
-  (_,i) => {
-
-    const d =
-      document.createElement('button');
-
-    d.className =
-      'dot';
-
-    d.onclick =
-      () => go(i,true);
-
-    $('#dots').appendChild(d);
-
-  }
-);
+let autoPlay =
+  true;
 
 
-function go(i,manual){
+function createDots(){
 
-  cur =
-    (i+slides.length) %
+  $('#dots').innerHTML =
+    '';
+
+  slides.forEach(
+    (_,index) => {
+
+      const dot =
+        document.createElement(
+          'button'
+        );
+
+      dot.className =
+        'dot';
+
+      dot.onclick =
+        () =>
+          showSlide(
+            index,
+            true
+          );
+
+      $('#dots')
+        .appendChild(dot);
+
+    }
+  );
+
+}
+
+
+function showSlide(
+  index,
+  manual=false
+){
+
+  currentSlide =
+    (
+      index +
+      slides.length
+    ) %
     slides.length;
 
-  const im =
+
+  const image =
     $('#slImg');
 
-  im.classList.add(
+
+  image.classList.add(
     'fade'
   );
+
 
   setTimeout(
     () => {
 
-      im.src =
-        slides[cur].src;
+      image.src =
+        slides[
+          currentSlide
+        ].src;
 
       $('#slCap').textContent =
-        slides[cur].caption || '';
+        slides[
+          currentSlide
+        ].caption || '';
 
-      im.classList.remove(
+      image.classList.remove(
         'fade'
       );
 
@@ -1975,16 +2437,24 @@ function go(i,manual){
 
 
   $$('.dot').forEach(
-    (d,k) =>
-      d.classList.toggle(
+    (dot,index) => {
+
+      dot.classList.toggle(
         'on',
-        k===cur
-      )
+        index ===
+        currentSlide
+      );
+
+    }
   );
 
 
   $('#frame').style.transform =
-    `rotate(${cur%2 ? 1.2 : -1.2}deg)`;
+    `rotate(${
+      currentSlide % 2
+        ? 1.2
+        : -1.2
+    }deg)`;
 
 
   if(manual){
@@ -1998,20 +2468,25 @@ function go(i,manual){
   }
 
 
-  restart();
+  restartSlideshow();
 
 }
 
 
-function restart(){
+function restartSlideshow(){
 
-  clearInterval(timer);
+  clearInterval(
+    slideshowTimer
+  );
 
-  if(auto){
+  if(autoPlay){
 
-    timer =
+    slideshowTimer =
       setInterval(
-        () => go(cur+1),
+        () =>
+          showSlide(
+            currentSlide+1
+          ),
         3800
       );
 
@@ -2021,51 +2496,75 @@ function restart(){
 
 
 $('#prev').onclick =
-  () => go(cur-1,true);
+  () =>
+    showSlide(
+      currentSlide-1,
+      true
+    );
+
 
 $('#next').onclick =
-  () => go(cur+1,true);
+  () =>
+    showSlide(
+      currentSlide+1,
+      true
+    );
 
 
 $('#playPause').onclick =
-  () => {
+  function(){
 
-    auto = !auto;
+    autoPlay =
+      !autoPlay;
 
-    $('#playPause').textContent =
-      auto
+    $('#playPause')
+      .textContent =
+      autoPlay
         ? '⏸ Pause'
         : '▶ Play';
 
-    restart();
+    restartSlideshow();
 
   };
 
 
-let sx = 0;
+let touchStartX =
+  0;
 
 
 $('#frame').addEventListener(
   'touchstart',
-  e => {
-    sx =
-      e.touches[0].clientX;
+  event => {
+
+    touchStartX =
+      event.touches[0].clientX;
+
   },
-  {passive:true}
+  {
+    passive:true
+  }
 );
 
 
 $('#frame').addEventListener(
   'touchend',
-  e => {
+  event => {
 
-    const d =
-      e.changedTouches[0].clientX-sx;
+    const difference =
+      event.changedTouches[0]
+        .clientX -
+      touchStartX;
 
-    if(Math.abs(d)>40){
 
-      go(
-        cur+(d<0 ? 1 : -1),
+    if(Math.abs(difference)>40){
+
+      showSlide(
+        currentSlide +
+        (
+          difference < 0
+            ? 1
+            : -1
+        ),
         true
       );
 
@@ -2075,73 +2574,60 @@ $('#frame').addEventListener(
 );
 
 
-addEventListener(
-  'keydown',
-  e => {
+createDots();
 
-    if(e.key === 'ArrowRight'){
-      go(cur+1,true);
-    }
-
-    if(e.key === 'ArrowLeft'){
-      go(cur-1,true);
-    }
-
-    if(e.key === 'Escape'){
-      closeLetter();
-    }
-
-  }
-);
-
-
-go(0);
+showSlide(0);
 
 
 /* =========================================================
    LETTERS
-   ========================================================= */
+========================================================= */
 
 const modal =
   $('#modal');
 
-let li = 0;
+let letterIndex =
+  0;
 
-let typing = null;
+let typingTimer =
+  null;
 
 
 LETTERS.forEach(
-  (l,i) => {
+  (letter,index) => {
 
-    const b =
-      document.createElement('button');
+    const envelope =
+      document.createElement(
+        'button'
+      );
 
-    b.className =
+    envelope.className =
       'env';
 
-    b.innerHTML =
-      `<span>${l.from}</span>`;
+    envelope.innerHTML =
+      `<span>${letter.from}</span>`;
 
 
-    b.onclick =
-      e => {
+    envelope.onclick =
+      event => {
 
-        b.classList.add(
+        envelope.classList.add(
           'open'
         );
 
         hearts(
-          e.clientX,
-          e.clientY,
+          event.clientX,
+          event.clientY,
           6
         );
+
 
         setTimeout(
           () => {
 
-            showLetter(i);
+            showLetter(index);
 
-            b.classList.remove(
+            envelope.classList.remove(
               'open'
             );
 
@@ -2153,59 +2639,75 @@ LETTERS.forEach(
 
 
     $('#letters')
-      .appendChild(b);
+      .appendChild(
+        envelope
+      );
 
   }
 );
 
 
-function showLetter(i){
+function showLetter(index){
 
-  li =
-    (i+LETTERS.length) %
+  letterIndex =
+    (
+      index +
+      LETTERS.length
+    ) %
     LETTERS.length;
 
-  const l =
-    LETTERS[li];
+
+  const letter =
+    LETTERS[
+      letterIndex
+    ];
+
 
   modal.classList.add(
     'on'
   );
 
+
   $('#lTitle').textContent =
-    l.title;
+    letter.title;
 
   $('#lFrom').textContent =
-    '- ' + l.from;
+    '- ' +
+    letter.from;
 
 
   clearInterval(
-    typing
+    typingTimer
   );
 
 
-  const p =
+  const body =
     $('#lBody');
 
-  let n = 0;
+  let position =
+    0;
 
-  p.textContent = '';
+  body.textContent =
+    '';
 
 
-  typing =
+  typingTimer =
     setInterval(
       () => {
 
-        p.textContent =
-          l.text.slice(
+        body.textContent =
+          letter.text.slice(
             0,
-            ++n
+            ++position
           );
 
-        if(n >= l.text.length){
+        if(
+          position >=
+          letter.text.length
+        ){
 
           clearInterval(
-            typing
+            typingTimer
           );
 
         }
@@ -2215,28 +2717,8 @@ function showLetter(i){
     );
 
 
-  $('.paper').scrollTop = 0;
-
-
-  $('.paper').onclick =
-    ev => {
-
-      if(
-        ev.target.closest(
-          'button'
-        )
-      ){
-        return;
-      }
-
-      clearInterval(
-        typing
-      );
-
-      p.textContent =
-        l.text;
-
-    };
+  $('.paper').scrollTop =
+    0;
 
 }
 
@@ -2248,7 +2730,7 @@ function closeLetter(){
   );
 
   clearInterval(
-    typing
+    typingTimer
   );
 
 }
@@ -2259,9 +2741,12 @@ $('#closeLetter').onclick =
 
 
 modal.onclick =
-  e => {
+  event => {
 
-    if(e.target === modal){
+    if(
+      event.target ===
+      modal
+    ){
 
       closeLetter();
 
@@ -2271,25 +2756,32 @@ modal.onclick =
 
 
 $('#lPrev').onclick =
-  () => showLetter(li-1);
+  () =>
+    showLetter(
+      letterIndex-1
+    );
+
 
 $('#lNext').onclick =
-  () => showLetter(li+1);
+  () =>
+    showLetter(
+      letterIndex+1
+    );
 
 
 $('#lHeart').onclick =
-  e => {
+  event => {
 
     hearts(
-      e.clientX,
-      e.clientY,
+      event.clientX,
+      event.clientY,
       10
     );
 
     confetti(
       40,
-      e.clientX,
-      e.clientY
+      event.clientX,
+      event.clientY
     );
 
   };
@@ -2297,88 +2789,134 @@ $('#lHeart').onclick =
 
 /* =========================================================
    PARTY BET
-   ========================================================= */
+========================================================= */
 
-let pot = 0;
-
-let side = 'Heads';
-
-let amt = 0;
+const BET_STORAGE_KEY =
+  'unnati_party_bet_history';
 
 
-[100,200,500,1000].forEach(
-  v => {
+/*
+ * Restore history.
+ */
 
-    const c =
-      document.createElement('button');
-
-    c.className =
-      'chip';
-
-    c.textContent =
-      '₹' + v;
-
-
-    c.onclick =
-      () => {
-
-        amt = v;
-
-        $('#bAmt').value = v;
-
-        $$('#chips .chip')
-          .forEach(
-            x =>
-              x.classList.toggle(
-                'on',
-                x===c
-              )
-          );
-
-      };
+let betHistory =
+  JSON.parse(
+    localStorage.getItem(
+      BET_STORAGE_KEY
+    ) || '[]'
+  );
 
 
-    $('#chips')
-      .appendChild(c);
-
-  }
-);
+let selectedSide =
+  'Heads';
 
 
-$$('[data-side]').forEach(
-  b => {
+let coinRotation =
+  0;
 
-    b.onclick =
-      () => {
 
-        side =
-          b.dataset.side;
+/* =========================================================
+   AMOUNT BUTTONS
+========================================================= */
 
-        $$('[data-side]')
-          .forEach(
-            x =>
-              x.classList.toggle(
-                'on',
-                x===b
-              )
-          );
+[100,200,500,1000]
+  .forEach(
+    amount => {
 
-      };
+      const button =
+        document.createElement(
+          'button'
+        );
 
-  }
-);
+      button.className =
+        'chip';
 
+      button.textContent =
+        '₹' + amount;
+
+
+      button.onclick =
+        () => {
+
+          $('#bAmt').value =
+            amount;
+
+
+          $$('#chips .chip')
+            .forEach(
+              chip => {
+
+                /*
+                 * Only amount chips.
+                 *
+                 * Heads/Tails are
+                 * outside #chips.
+                 */
+
+                chip.classList.toggle(
+                  'on',
+                  chip === button
+                );
+
+              }
+            );
+
+        };
+
+
+      $('#chips')
+        .appendChild(
+          button
+        );
+
+    }
+  );
+
+
+/* =========================================================
+   HEADS / TAILS
+========================================================= */
+
+$$('[data-side]')
+  .forEach(
+    button => {
+
+      button.onclick =
+        () => {
+
+          selectedSide =
+            button.dataset.side;
+
+
+          $$('[data-side]')
+            .forEach(
+              item => {
+
+                item.classList.toggle(
+                  'on',
+                  item === button
+                );
+
+              }
+            );
+
+        };
+
+    }
+  );
+
+
+/* =========================================================
+   CUSTOM AMOUNT
+========================================================= */
 
 $('#bAmt').oninput =
   () => {
 
-    amt =
-      +$('#bAmt').value;
-
     $$('#chips .chip')
       .forEach(
-        x =>
-          x.classList.remove(
+        chip =>
+          chip.classList.remove(
             'on'
           )
       );
@@ -2386,8 +2924,192 @@ $('#bAmt').oninput =
   };
 
 
-let rot = 0;
+/* =========================================================
+   SAVE BET HISTORY
+========================================================= */
 
+function saveBetHistory(){
+
+  localStorage.setItem(
+    BET_STORAGE_KEY,
+    JSON.stringify(
+      betHistory
+    )
+  );
+
+}
+
+
+/* =========================================================
+   ESCAPE USER NAME
+========================================================= */
+
+function escapeHTML(value){
+
+  const element =
+    document.createElement(
+      'div'
+    );
+
+  element.textContent =
+    value;
+
+  return element.innerHTML;
+
+}
+
+
+/* =========================================================
+   RENDER BET HISTORY
+========================================================= */
+
+function renderBetHistory(){
+
+  const feed =
+    $('#feed');
+
+
+  feed.innerHTML =
+    '';
+
+
+  if(
+    betHistory.length === 0
+  ){
+
+    const empty =
+      document.createElement(
+        'li'
+      );
+
+    empty.textContent =
+      'No bets yet. Be the first one! 🪙';
+
+    feed.appendChild(
+      empty
+    );
+
+    $('#pot').textContent =
+      '0';
+
+    return;
+
+  }
+
+
+  /*
+   * Calculate party pot.
+   */
+
+  let partyPot =
+    0;
+
+
+  betHistory.forEach(
+    bet => {
+
+      if(!bet.win){
+
+        partyPot +=
+          Number(
+            bet.amount
+          );
+
+      }
+
+    }
+  );
+
+
+  $('#pot').textContent =
+    partyPot.toLocaleString(
+      'en-IN'
+    );
+
+
+  /*
+   * Newest first.
+   */
+
+  betHistory.forEach(
+    bet => {
+
+      const item =
+        document.createElement(
+          'li'
+        );
+
+
+      item.className =
+        bet.win
+          ? 'win'
+          : 'loss';
+
+
+      const icon =
+        bet.win
+          ? '🏆'
+          : '💸';
+
+
+      const status =
+        bet.win
+          ? 'WON'
+          : 'LOST';
+
+
+      item.innerHTML = `
+
+        ${icon}
+        <strong>
+          ${escapeHTML(bet.name)}
+        </strong>
+
+        bet
+
+        <strong>
+          ₹${Number(bet.amount).toLocaleString('en-IN')}
+        </strong>
+
+        on
+
+        <strong>
+          ${escapeHTML(bet.side)}
+        </strong>
+
+        <br>
+
+        Result:
+        <strong>
+          ${escapeHTML(bet.result)}
+        </strong>
+
+        —
+
+        <strong>
+          ${status}
+        </strong>
+
+        <span class="bet-date">
+          🕐 ${escapeHTML(bet.time)}
+        </span>
+
+      `;
+
+
+      feed.appendChild(
+        item
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   FLIP BET
+========================================================= */
 
 $('#flip').onclick =
   () => {
@@ -2395,14 +3117,20 @@ $('#flip').onclick =
     const name =
       $('#bName')
         .value
-        .trim()
-      || 'Mystery friend';
-
-    const a =
-      +$('#bAmt').value;
+        .trim() ||
+      'Mystery friend';
 
 
-    if(!a || a<1){
+    const amount =
+      Number(
+        $('#bAmt').value
+      );
+
+
+    if(
+      !amount ||
+      amount < 1
+    ){
 
       $('#res').textContent =
         'Pick or type an amount first! 💰';
@@ -2412,60 +3140,150 @@ $('#flip').onclick =
     }
 
 
+    /*
+     * Generate result.
+     */
+
     const result =
-      Math.random()<.5
+      Math.random() < .5
         ? 'Heads'
         : 'Tails';
 
 
-    rot +=
+    /*
+     * Check whether player won.
+     */
+
+    const won =
+      result === selectedSide;
+
+
+    /*
+     * Animate coin.
+     */
+
+    coinRotation +=
       1800 +
-      (result==='Tails' ? 180 : 0) -
-      (rot%360);
+      (
+        result === 'Tails'
+          ? 180
+          : 0
+      ) -
+      (
+        coinRotation % 360
+      );
 
 
-    const c =
+    const coin =
       $('#coin');
 
-    c.style.transform =
-      `rotateY(${rot}deg)`;
+
+    coin.style.transform =
+      `rotateY(${coinRotation}deg)`;
 
 
     $('#res').textContent =
       'Flipping... 🪙';
 
 
+    $('#flip').disabled =
+      true;
+
+
+    /*
+     * Wait for animation.
+     */
+
     setTimeout(
       () => {
 
-        c.textContent =
-          result==='Heads'
+        coin.textContent =
+          result === 'Heads'
             ? 'H'
             : 'T';
 
 
-        const win =
-          result === side;
+        /*
+         * Time.
+         */
 
-        let msg;
+        const time =
+          new Date()
+            .toLocaleString(
+              'en-IN',
+              {
+                day:'2-digit',
+                month:'short',
+                year:'numeric',
+                hour:'2-digit',
+                minute:'2-digit'
+              }
+            );
 
 
-        if(win){
+        /*
+         * Store complete bet.
+         */
 
-          msg =
-            `🎉 ${result}! ${name} wins — the party is on ${CONFIG.friendName}!`;
+        const bet = {
+
+          id:
+            Date.now(),
+
+          name:
+            name,
+
+          amount:
+            amount,
+
+          side:
+            selectedSide,
+
+          result:
+            result,
+
+          win:
+            won,
+
+          time:
+            time
+
+        };
+
+
+        /*
+         * Newest first.
+         */
+
+        betHistory.unshift(
+          bet
+        );
+
+
+        /*
+         * Save to browser.
+         */
+
+        saveBetHistory();
+
+
+        /*
+         * Show result.
+         */
+
+        if(won){
+
+          $('#res').textContent =
+            `🎉 ${result}! ${name} wins — ` +
+            `the party is on ${CONFIG.friendName}!`;
 
           confetti(160);
 
         }else{
 
-          pot += a;
-
-          $('#pot').textContent =
-            pot;
-
-          msg =
-            `😜 ${result}! ${name}'s ₹${a} goes into the party pot.`;
+          $('#res').textContent =
+            `😜 ${result}! ${name}'s ₹${amount} ` +
+            `goes into the party pot.`;
 
           hearts(
             innerWidth/2,
@@ -2476,33 +3294,16 @@ $('#flip').onclick =
         }
 
 
-        $('#res').textContent =
-          msg;
+        /*
+         * Refresh history.
+         */
+
+        renderBetHistory();
 
 
-        const item =
-          document.createElement('li');
+        $('#flip').disabled =
+          false;
 
-        item.textContent =
-          (
-            win
-              ? '🏆 '
-              : '💸 '
-          ) +
-          name +
-          ' bet ₹' +
-          a +
-          ' on ' +
-          side +
-          (
-            win
-              ? ' (won)'
-              : ' (lost)'
-          );
-
-
-        $('#feed')
-          .prepend(item);
 
       },
       1500
@@ -2512,18 +3313,72 @@ $('#flip').onclick =
 
 
 /* =========================================================
+   CLEAR BET HISTORY
+========================================================= */
+
+$('#clearHistory').onclick =
+  () => {
+
+    if(
+      betHistory.length === 0
+    ){
+
+      return;
+
+    }
+
+
+    const confirmed =
+      confirm(
+        'Are you sure you want to clear all bet history?'
+      );
+
+
+    if(!confirmed){
+
+      return;
+
+    }
+
+
+    betHistory =
+      [];
+
+
+    localStorage.removeItem(
+      BET_STORAGE_KEY
+    );
+
+
+    renderBetHistory();
+
+
+    $('#res').textContent =
+      'Bet history cleared! 🧹';
+
+  };
+
+
+/*
+ * Initial history render.
+ */
+
+renderBetHistory();
+
+
+/* =========================================================
    UPI
-   ========================================================= */
+========================================================= */
 
 if(CONFIG.upiLink){
 
-  const u =
+  const upi =
     $('#upi');
 
-  u.href =
+  upi.href =
     CONFIG.upiLink;
 
-  u.style.display =
+  upi.style.display =
     'inline-block';
 
 }
@@ -2531,65 +3386,83 @@ if(CONFIG.upiLink){
 
 /* =========================================================
    BALLOONS
-   ========================================================= */
+========================================================= */
 
-function balloons(n=6){
+function balloons(
+  amount=6
+){
 
-  for(let i=0;i<n;i++){
+  for(
+    let i=0;
+    i<amount;
+    i++
+  ){
 
     setTimeout(
       () => {
 
-        const b =
-          document.createElement('div');
+        const balloon =
+          document.createElement(
+            'div'
+          );
 
-        b.className =
+        balloon.className =
           'balloon';
 
 
-        b.style.left =
-          Math.random()*92+'vw';
+        balloon.style.left =
+          Math.random()*92 +
+          'vw';
 
 
-        b.style.background =
-          COLS[
+        balloon.style.background =
+          COLORS[
             Math.floor(
               Math.random()*5
             )
           ];
 
 
-        b.style.setProperty(
+        balloon.style.setProperty(
           '--dx',
-          (Math.random()*80-40)+'px'
+          (
+            Math.random()*80 -
+            40
+          ) + 'px'
         );
 
 
-        b.style.animationDuration =
-          (7+Math.random()*6)+'s';
+        balloon.style.animationDuration =
+          (
+            7 +
+            Math.random()*6
+          ) + 's';
 
 
-        b.onclick =
-          e => {
+        balloon.onclick =
+          event => {
 
             confetti(
               40,
-              e.clientX,
-              e.clientY
+              event.clientX,
+              event.clientY
             );
 
-            b.remove();
+            balloon.remove();
 
           };
 
 
-        b.addEventListener(
+        balloon.addEventListener(
           'animationend',
-          () => b.remove()
+          () =>
+            balloon.remove()
         );
 
 
-        document.body.appendChild(b);
+        document.body.appendChild(
+          balloon
+        );
 
       },
       i*450
@@ -2608,6 +3481,48 @@ $('#moreBalloons').onclick =
     confetti(80);
 
   };
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+addEventListener(
+  'keydown',
+  event => {
+
+    if(
+      event.key === 'ArrowRight'
+    ){
+
+      showSlide(
+        currentSlide+1,
+        true
+      );
+
+    }
+
+    if(
+      event.key === 'ArrowLeft'
+    ){
+
+      showSlide(
+        currentSlide-1,
+        true
+      );
+
+    }
+
+    if(
+      event.key === 'Escape'
+    ){
+
+      closeLetter();
+
+    }
+
+  }
+);
 
 </script>
 
