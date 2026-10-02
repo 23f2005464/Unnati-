@@ -858,7 +858,7 @@ section{
      LOCK SCREEN
 ===================================================== -->
 
-<div class="stage on" id="lock">
+<div class="stage" id="lock">
 
   <h1 class="ink-text">
     Shhh... a surprise<br>
@@ -895,7 +895,7 @@ section{
      REVEAL
 ===================================================== -->
 
-<div class="stage" id="reveal">
+<div class="stage on" id="reveal">
 
   <div id="pre">
 
@@ -1273,9 +1273,6 @@ const CONFIG = {
 
   friendName: "Unnu Bhai",
 
-  unlockAt:
-    "2026-10-03T00:00:00+05:30",
-
   youtube:
     "https://youtu.be/d5jlZ4qmWzM?si=2AxbXrehZILP2mtj",
 
@@ -1378,75 +1375,6 @@ const $$ =
 
 $('#nameH').textContent =
   CONFIG.friendName;
-
-const query =
-  new URLSearchParams(location.search);
-
-const unlockMs =
-  new Date(CONFIG.unlockAt).getTime();
-
-const pad =
-  n =>
-    String(n).padStart(2,'0');
-
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
-let tick =
-  setInterval(updateCountdown,500);
-
-updateCountdown();
-
-function updateCountdown(){
-
-  const remaining =
-    unlockMs - Date.now();
-
-  if(
-    remaining <= 0 ||
-    query.has("open")
-  ){
-
-    clearInterval(tick);
-
-    $('#lock')
-      .classList
-      .remove('on');
-
-    $('#reveal')
-      .classList
-      .add('on');
-
-    return;
-
-  }
-
-  const seconds =
-    Math.floor(
-      remaining / 1000
-    );
-
-  $('#th').textContent =
-    pad(
-      Math.floor(seconds / 3600)
-    );
-
-  $('#tm').textContent =
-    pad(
-      Math.floor(
-        (seconds % 3600) / 60
-      )
-    );
-
-  $('#ts').textContent =
-    pad(
-      seconds % 60
-    );
-
-}
-
 
 /* =========================================================
    CONFETTI
