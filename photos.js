@@ -1,4 +1,4 @@
-const PHOTOS = [
+window.PHOTOS = [
   {
     "src": "image/Screenshot From 2026-10-03 01-08-17.png",
     "caption": "😂 Another legendary moment"
