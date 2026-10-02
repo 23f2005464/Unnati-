@@ -156,11 +156,15 @@ button{
 }
 
 #giftBtn{
+  position:relative;
+  z-index:91;
   font-size:clamp(6rem,24vw,11rem);
   line-height:1;
   animation:shake 1.6s infinite;
   background:none;
   border:0;
+  pointer-events:auto;
+  touch-action:manipulation;
 }
 
 @keyframes shake{
