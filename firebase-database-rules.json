@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "partyBets": {
+      ".read": true,
+      ".write": true,
+      "$betId": {
+        ".validate": "newData.hasChildren(['name','amount','side','result','win','time','createdAt']) && newData.child('name').isString() && newData.child('name').val().length <= 100 && newData.child('amount').isNumber() && newData.child('amount').val() >= 1 && newData.child('side').isString() && (newData.child('side').val() == 'Heads' || newData.child('side').val() == 'Tails') && newData.child('result').isString() && (newData.child('result').val() == 'Heads' || newData.child('result').val() == 'Tails') && newData.child('win').isBoolean() && newData.child('time').isString() && newData.child('time').val().length <= 100 && newData.child('createdAt').isNumber()"
+      }
+    }
+  }
+}
+
